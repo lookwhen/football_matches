@@ -9,9 +9,21 @@ async function getMatches(){
         }
 
         const result = await response.json();
-        console.log(result);
+        return result;
     }
     catch(error){
         console.error(error.message);
     }
+}
+
+function printMatches(data){
+
+    for(const match of data["matches"]){
+        console.log(`${match.team1} -- ${match.team2}`);
+    }
+}
+
+async function mainFunc(){
+    const results = await getMatches();
+    printMatches(results);
 }
