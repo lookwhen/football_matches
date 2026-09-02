@@ -1,0 +1,27 @@
+body{
+    background-color: black;
+}
+
+
+.match-button{
+    background-color: antiquewhite;
+    padding: 20px 10px 15px 10px;
+    margin-left: 10px;
+    border: none;
+}
+
+.match-button:hover{
+    opacity: 50%;
+}
+
+.world-cup{
+    margin-top: 20px;
+    background-color: antiquewhite;
+    border-radius: 5%;
+    width: 40%;
+}
+
+.world-cup--text{
+    padding: 20px;
+    font-size: larger;
+}
