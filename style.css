@@ -19,9 +19,12 @@ body{
     background-color: antiquewhite;
     border-radius: 5%;
     width: 40%;
+    height: auto;
 }
 
 .world-cup--text{
-    padding: 20px;
+    padding: 5px;
     font-size: larger;
+    border: none;
+    background-color: antiquewhite;
 }

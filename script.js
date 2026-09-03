@@ -17,13 +17,25 @@ async function getMatches(){
 }
 
 function printMatches(data){
-
+    console.log(data["name"]);
     for(const match of data["matches"]){
         console.log(`${match.team1} -- ${match.team2}`);
     }
 }
 
-async function mainFunc(){
-    const results = await getMatches();
-    printMatches(results);
+function createWorldCupButton(data){
+    document.querySelector(".world-cup--text").textContent = data.name;
 }
+
+async function mainFunc(){
+    try{
+        const results = await getMatches();
+        printMatches(results);
+        createWorldCupButton(results);
+        }
+    catch(error){
+        console.error(error.message);
+        }
+    }
+
+mainFunc();
