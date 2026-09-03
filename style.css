@@ -14,12 +14,13 @@ body{
     opacity: 50%;
 }
 
-.world-cup{
+#world-cup-wrap{
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     background-color: antiquewhite;
-    border-radius: 5%;
-    width: 40%;
-    height: auto;
+    max-width: 300px;
 }
 
 .world-cup--text{
