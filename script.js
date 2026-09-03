@@ -27,8 +27,42 @@ function createWorldCupButton(matchesData){
     document.querySelector(".world-cup--text").textContent = matchesData.name;
 }
 
+function displayGroupStageMatches(matchesData){
+    const buttons = document.querySelectorAll(".match-button");
+    
+    for(let i = 0; i < buttons.length; i++){
+        const match = matchesData.matches[i];
+
+        if(match){
+            if(!match.round.includes("Matchday")){
+                buttons[i].classList.add("is-hidden");
+            }
+            else{
+                buttons[i].classList.remove("is-hidden");
+            }
+        }
+    }
+}
+
+function displayKnockoutsMatches(matchesData){
+    const buttons = document.querySelectorAll(".match-button");
+    
+    for(let i = 0; i < buttons.length; i++){
+        const match = matchesData.matches[i];
+
+        if(match){
+            if(match.round.includes("Matchday")){
+                buttons[i].classList.add("is-hidden");
+            }
+            else{
+                buttons[i].classList.remove("is-hidden");
+            }
+        }
+    }
+}
+
 function createMatchButtons(matchesData){
-    const buttonsWrapper = document.getElementById("world-cup-wrap");
+    const buttonsWrapper = document.getElementById("matches-button-wrap");
 
     for(const match of matchesData.matches){
         let button = document.createElement("button");
@@ -44,6 +78,15 @@ async function mainFunc(){
         printMatches(results);
         createWorldCupButton(results);
         createMatchButtons(results);
+
+        document.getElementById("group-stage-button").addEventListener("click", ()=>{
+            displayGroupStageMatches(results);
+        });
+
+        document.getElementById("knockout-button").addEventListener("click", () =>{
+            displayKnockoutsMatches(results);
+        });
+
         }
     catch(error){
         console.error(error.message);
