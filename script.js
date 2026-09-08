@@ -61,6 +61,12 @@ function displayKnockoutsMatches(matchesData){
     }
 }
 
+function displayAllMatches(matchesData){
+    const buttons = document.querySelectorAll(".match-button");
+
+    buttons.forEach((element) => element.classList.remove("is-hidden"));
+}
+
 function createMatchButtons(matchesData){
     const buttonsWrapper = document.getElementById("matches-button-wrap");
 
@@ -85,6 +91,10 @@ async function mainFunc(){
 
         document.getElementById("knockout-button").addEventListener("click", () =>{
             displayKnockoutsMatches(results);
+        });
+
+        document.getElementById("all-button").addEventListener("click", () =>{
+            displayAllMatches(results);
         });
 
         }
