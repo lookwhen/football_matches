@@ -67,12 +67,19 @@ function displayAllMatches(matchesData){
     buttons.forEach((element) => element.classList.remove("is-hidden"));
 }
 
+function displaySearchedMatches(matchesData){
+
+}
+
 function createMatchButtons(matchesData){
     const buttonsWrapper = document.getElementById("matches-button-wrap");
 
     for(const match of matchesData.matches){
         let button = document.createElement("button");
-        button.innerText = `${match.team1}  ${match.score.ft[0]} - ${match.score.ft[1]}  ${match.team2}`;
+        button.innerHTML = `
+        <span class="match-button-teams">${match.team1} vs ${match.team2}</span>
+        <span class="match-button-score">${match.score.ft[0]} - ${match.score.ft[1]}</span>
+        `;
         button.classList.add("match-button");
         buttonsWrapper.appendChild(button);
     }

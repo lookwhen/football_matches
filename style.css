@@ -7,8 +7,20 @@ body{
     background-color: antiquewhite;
     padding: 20px 10px 15px 10px;
     margin-left: 10px;
-    border: none;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
+
+.match-button-teams{
+    font-weight: 600;
+}
+
 
 .match-button:hover{
     opacity: 50%;
@@ -25,7 +37,7 @@ body{
     flex-direction: column;
     gap: 5px;
     background-color: antiquewhite;
-    max-width: 300px;
+    max-width: 600px;
 }
 
 #matches-button-wrap{
@@ -54,4 +66,10 @@ body{
     font-size: larger;
     border: none;
     background-color: antiquewhite;
+}
+
+#search-input{
+    width: 100px;
+    height: 45px;
+    border-radius: 5px;
 }
