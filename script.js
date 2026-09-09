@@ -61,6 +61,24 @@ function displayKnockoutsMatches(matchesData){
     }
 }
 
+
+function addSelectedClass(buttonIdName){
+    const buttons = document.querySelectorAll("#sort-buttons button");
+    const selectedButton = document.getElementById(buttonIdName);
+
+    console.log(selectedButton.textContent);
+
+    try{
+        buttons.forEach((element) => element.classList.remove("is-selected"));
+        selectedButton.classList.add("is-selected");
+    }
+    catch(error){
+        console.error(error);
+    }
+
+}
+
+
 function displayAllMatches(matchesData){
     const buttons = document.querySelectorAll(".match-button");
 
@@ -92,16 +110,20 @@ async function mainFunc(){
         createWorldCupButton(results);
         createMatchButtons(results);
 
+
         document.getElementById("group-stage-button").addEventListener("click", ()=>{
             displayGroupStageMatches(results);
+            addSelectedClass("group-stage-button");
         });
 
         document.getElementById("knockout-button").addEventListener("click", () =>{
             displayKnockoutsMatches(results);
+            addSelectedClass("knockout-button");
         });
 
         document.getElementById("all-button").addEventListener("click", () =>{
             displayAllMatches(results);
+            addSelectedClass("all-button");
         });
 
         }
