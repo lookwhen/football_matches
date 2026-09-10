@@ -83,14 +83,23 @@ function displayAllMatches(matchesData){
     buttons.forEach((element) => element.classList.remove("is-hidden"));
 }
 
-function displaySearchedMatches(matchesData){
+
+function fillMatchInfoButtons(matchesData, id){
+    const team1Button = document.getElementById("#team1");
+    const team2Button = document.getElementById("#team2");
+
+    team1Button.innerText = `${matchesData[id].team1}`;
+    team2Button.innerText = `${matchesData[id].team2}`;
 
 }
+
 
 function createMatchButtons(matchesData){
     const buttonsWrapper = document.getElementById("matches-button-wrap");
 
+    let id = 0;
     for(const match of matchesData.matches){
+        match.id = id++;
         let button = document.createElement("button");
         button.innerHTML = `
         <span class="match-button-teams">${match.team1} vs ${match.team2}</span>
@@ -151,8 +160,15 @@ async function mainFunc(){
         const input = document.querySelector('input[type="search"]');
 
         document.getElementById("search-input").addEventListener("search", (e) => {
-            console.log(input.value);
             showUserInput(input.value);
+        });
+
+        document.querySelectorAll(".match-button").forEach((button) => {
+            button.addEventListener("click", (event) => {
+                const matchId = event.currentTarget.id; 
+                window.location.href = `match_info.html?id=${matchId}`;
+                
+            });
         });
 
         }
