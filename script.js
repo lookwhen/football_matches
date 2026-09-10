@@ -66,8 +66,6 @@ function addSelectedClass(buttonIdName){
     const buttons = document.querySelectorAll("#sort-buttons button");
     const selectedButton = document.getElementById(buttonIdName);
 
-    console.log(selectedButton.textContent);
-
     try{
         buttons.forEach((element) => element.classList.remove("is-selected"));
         selectedButton.classList.add("is-selected");
@@ -103,12 +101,36 @@ function createMatchButtons(matchesData){
     }
 }
 
+function showUserInput(userInput){
+    try{    
+        const matchButtons = document.querySelectorAll(".match-button");
+        if(!userInput){
+            matchButtons.forEach((element) => element.classList.remove("is-hidden"));    
+            return;
+        }
+        const userInputLower = userInput.toLowerCase();
+
+        for(const btn of matchButtons){
+            if(!btn.textContent.toLowerCase().includes(userInputLower)){
+                btn.classList.add("is-hidden");
+            }
+            else{
+                btn.classList.remove("is-hidden");
+            }
+        }
+    }catch(error){
+        console.error(error);
+    }
+}
+
+
 async function mainFunc(){
     try{
         const results = await getMatches();
-        printMatches(results);
         createWorldCupButton(results);
         createMatchButtons(results);
+
+        //showUserInput("Czech");
 
 
         document.getElementById("group-stage-button").addEventListener("click", ()=>{
@@ -124,6 +146,13 @@ async function mainFunc(){
         document.getElementById("all-button").addEventListener("click", () =>{
             displayAllMatches(results);
             addSelectedClass("all-button");
+        });
+
+        const input = document.querySelector('input[type="search"]');
+
+        document.getElementById("search-input").addEventListener("search", (e) => {
+            console.log(input.value);
+            showUserInput(input.value);
         });
 
         }
