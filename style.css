@@ -1,80 +1,116 @@
-body{
-    background-color: black;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    background-color: #121212; 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
 
-.match-button{
+#world-cup-wrap {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     background-color: antiquewhite;
-    padding: 20px 10px 15px 10px;
-    margin-left: 10px;
-    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
 
+.world-cup--text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    color: #2c2c2c;
+}
+
+#sort-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+#sort-buttons button {
+    background-color: bisque;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#sort-buttons button:hover {
+    background-color: #f3d1ac;
+}
+
+#search-input {
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease;
+    margin-left: auto; 
+}
+
+#search-input:focus {
+    border-color: #008b8b;
+}
+
+#matches-button-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%; 
+}
+
+.match-button {
+    background-color: #fff8f0; 
+    padding: 14px 18px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 6px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
 }
 
-.match-button-teams{
+.match-button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.match-button-teams {
     font-weight: 600;
+    font-size: 1rem;
+    color: #1a1a1a;
 }
 
-
-.match-button:hover{
-    opacity: 50%;
+.is-hidden {
+    display: none !important;
 }
 
-.is-hidden{
-    display: none;
-}
-
-.is-selected{
+.is-selected {
     background-color: rgb(187, 238, 238) !important;
-}
-
-
-#world-cup-wrap{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background-color: antiquewhite;
-    max-width: 600px;
-}
-
-#matches-button-wrap{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background-color: antiquewhite;
-    max-width: 300px;
-}
-
-#sort-buttons{
-    display: flex;
-    flex-direction: row;
-}
-
-#sort-buttons button{
-    background-color: bisque;
-    padding: 5px 15px 5px 15px;
-    margin-right: 5px;
-    border-radius: 10%;
-    cursor: pointer;
-}
-
-.world-cup--text{
-    padding: 5px;
-    font-size: larger;
-    border: none;
-    background-color: antiquewhite;
-}
-
-#search-input{
-    width: 100px;
-    height: 45px;
-    border-radius: 5px;
+    border-color: #8edbdb !important;
+    font-weight: 600;
 }
