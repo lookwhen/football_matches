@@ -26,17 +26,23 @@
             const response = await fetch('./worldcup.json');
             const results = await response.json();
 
+            const searchParams = new URLSearchParams(window.location.search);
+            const param = searchParams.get('id');
+
+            
+
+            const id = param;
             const roundElement = document.querySelector("#round");
-            roundElement.textContent = `${results.matches[0].round}`;
+            roundElement.textContent = `${results.matches[id].round}`;
 
             const teamsNameElement = document.querySelector("#team-names");
-            teamsNameElement.textContent = `${results.matches[0].team1} - ${results.matches[0].team2}`;
+            teamsNameElement.textContent = `${results.matches[id].team1} - ${results.matches[id].team2}`;
             
             const dateElement = document.querySelector("#date");
-            dateElement.textContent = `${results.matches[0].date}`;
+            dateElement.textContent = `${results.matches[id].date}`;
             
             const scoreElement = document.querySelector("#score-ft");
-            scoreElement.textContent = `${results.matches[0].score.ft[0]} - ${results.matches[0].score.ft[1]}`;
+            scoreElement.textContent = `${results.matches[id].score.ft[0]} - ${results.matches[id].score.ft[1]}`;
             
             
 

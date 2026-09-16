@@ -99,8 +99,8 @@ function createMatchButtons(matchesData){
 
     let id = 0;
     for(const match of matchesData.matches){
-        match.id = id++;
         let button = document.createElement("button");
+        button.id = id++;
         button.innerHTML = `
         <span class="match-button-round">${match.round}</span>
         <span class="match-button-teams">${match.team1} vs ${match.team2}</span>
@@ -166,7 +166,7 @@ async function mainFunc(){
 
         document.querySelectorAll(".match-button").forEach((button) => {
             button.addEventListener("click", (event) => {
-                const matchId = event.currentTarget.id; 
+                const matchId = event.currentTarget.id;
                 window.location.href = `match_info.html?id=${matchId}`;
                 
             });
