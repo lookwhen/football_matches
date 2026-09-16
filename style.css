@@ -105,6 +105,11 @@ body {
     color: #1a1a1a;
 }
 
+.match-button-round{
+    margin-right: auto;
+    padding: 5px 5px 0px 5px;
+}
+
 .is-hidden {
     display: none !important;
 }

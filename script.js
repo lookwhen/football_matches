@@ -102,6 +102,7 @@ function createMatchButtons(matchesData){
         match.id = id++;
         let button = document.createElement("button");
         button.innerHTML = `
+        <span class="match-button-round">${match.round}</span>
         <span class="match-button-teams">${match.team1} vs ${match.team2}</span>
         <span class="match-button-score">${match.score.ft[0]} - ${match.score.ft[1]}</span>
         `;
