@@ -4,18 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match info</title>
+    <link rel="stylesheet" href="details.css">
     
 </head>
 <body>
     <div id="match-info-wrap">
+
+        <a href="base.html" class="back-button">Back</a>
+        
         <div id="team-names-wrap">
-            <button id="team1"></button>
-            <p>-</p>
-            <button id="team2"></button>
+            <p id="round"></p>
+            <p id="team-names"></p>
+            <p id="date"></p>
+            <p id="score-ft"></p>
         </div>
 
     </div>
 
+    <script type="module">
+        try{
+            const response = await fetch('./worldcup.json');
+            const results = await response.json();
+
+            const roundElement = document.querySelector("#round");
+            roundElement.textContent = `${results.matches[0].round}`;
+
+            const teamsNameElement = document.querySelector("#team-names");
+            teamsNameElement.textContent = `${results.matches[0].team1} - ${results.matches[0].team2}`;
+            
+            const dateElement = document.querySelector("#date");
+            dateElement.textContent = `${results.matches[0].date}`;
+            
+            const scoreElement = document.querySelector("#score-ft");
+            scoreElement.textContent = `${results.matches[0].score.ft[0]} - ${results.matches[0].score.ft[1]}`;
+            
+            
+
+
+        }
+        catch(error){
+            console.error(error);
+        }
+        
+
+    </script>
 
 </body>
 </html>
